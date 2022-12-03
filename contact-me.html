@@ -2,9 +2,60 @@
 <html>
   <head>
     <title>Contact Me</title>
+    <link rel="stylesheet" href="contact-me-style.css">
   </head>
 
   <body>
-    <!-- TODO -->
+    <h1>Contact me</h1>
+
+    <form>
+      <!--
+        Text Input
+        <label for="elementID"> x= </label>
+        <input type="text" id="elementID">
+
+        Drop-down selection
+        <label for="selectID"> Pick one. </label><br>
+        <select id="selectID">
+          <option value="opt1">First Option</option>
+          <option value="opt2">Second Option</option>
+        </select> 
+
+        Use name="selectID" for easy access via JS.
+      -->
+
+      <label for="name">Name:</label> <input type="text" id="name">
+      <br>
+  
+      <label for="email">eMail:</label> <input type="email" id="email" name="email">
+      <br>
+
+      <label for="contactReason"> What do you want to chat about?</label>
+      <select name="contactReason" id="contactReason">
+        <option value="job">Job opportunity</option>
+        <option value="code">Talk code</option>
+      </select>
+
+      <div class="jobElements hidden">
+        <label for="title">Job title: </label> <input type="text" id="title"> <br>
+        <label for="website"></label>Company Website: <input type="url" id="website">
+      </div>
+
+      <div class="codeElements hidden">
+        <label for="language">Coding language: </label> <select name="language" id="language">
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JS">JS</option>
+        </select>
+      </div>
+
+      <textarea name="message" id="message" cols="30" rows="10"></textarea>
+      <br>
+
+      <input type="submit" value="Submit">
+
+    </form>
+
+    <script src="contact-me.js"></script>
   </body>
 </html>
