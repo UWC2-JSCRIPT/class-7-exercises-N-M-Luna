@@ -69,6 +69,53 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         console.log(`message: ${messageElem.validity.valid ? `Valid` : `Invalid`}`)
 
+        //If client's form has jobElements
+        if(!jobElements.classList.contains('hidden')){
+
+            //validate #title, and 
+            const jobTitle = document.querySelector('#title')
+            if (jobTitle.value){
+                jobTitle.validity.valid = true
+                messageElem.classList.remove('invalid')
+            } else {
+                jobTitle.validity.valid = false
+                jobTitle.classList.add('invalid')
+                jobTitle.setCustomValidity(`Your company surely has a name...`)
+                formIsValid = false
+            }
+            console.log(`job title: ${jobTitle.validity.valid ? `Valid` : `Invalid`}`)
+
+            //validate #website
+            const website = document.querySelector('#website')
+            if (/https?\:\/\/.+\..+/.test(website.value)) {
+                website.classList.remove('invalid')
+                website.validity.valid = true
+            } else {
+                website.validity.valid = false
+                website.classList.add('invalid')
+                website.setCustomValidity(`This link is useless.`)
+                formIsValid = false
+            }
+            console.log(`company website: ${website.validity.valid ? `Valid` : `Invalid`}`)
+        }
+
+        //If client's form has codeElements
+        if(!codeElements.classList.contains('hidden')){
+
+            //validate #language
+            const langElem = document.querySelector('#language')
+            if (langElem.value.length < 1){
+                langElem.validity.valid = false
+                langElem.classList.add('invalid')
+                langElem.setCustomValidity('Please choose an option.')
+                formIsValid = false
+            } else {
+                langElem.classList.remove('invalid')
+                langElem.validity.valid = true
+            }
+            console.log(`coding language: ${langElem.validity.valid ? `Valid` : `Invalid`}`)
+        }
+
         return formIsValid
     }
 
